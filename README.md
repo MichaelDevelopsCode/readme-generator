@@ -11,6 +11,9 @@
   
   ## Installation
   npm install inquirer
+  
+  ## Walkthrough
+  Video of walkthrough can be found here [Google Drive Link](https://drive.google.com/file/d/1W0O11V5MBPSh8sfXnrHSQEM6ton0Jdm6/view)
 
   ## Usage
   run node index.js in terminal, answer questions and then a readme.md file will be generated.

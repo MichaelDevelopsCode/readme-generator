@@ -16,7 +16,7 @@
   run node index.js in terminal, answer questions and then a readme.md file will be generated.
 
   ## License
-  This application is covered under the license Unlicense. For more info vist http://unlicense.org/(http://unlicense.org/)
+  This application is covered under the license Unlicense. For more info vist [http://unlicense.org/](http://unlicense.org/)
 
   ## Contributing
   No contributing guidelines

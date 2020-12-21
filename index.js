@@ -35,19 +35,6 @@ const questions = () => {
             type: 'input',
             name: 'installation',
             message: "What are the steps required to install your project?",
-            validate: installInput => {
-                if (installInput) {
-                    return true;
-                } else {
-                    console.log('Please enter installation instructions!');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
-            name: 'installation',
-            message: "What are the steps required to install your project?",
             default: "No installation steps"
         },
         {
@@ -67,13 +54,24 @@ const questions = () => {
             type: 'checkbox',
             name: 'license',
             message: "What license would you like to use?",
-            choices: ['', '', '', '', '', '', '']
+            choices: [
+                'Apache',
+                'Boost',
+                'Eclipse', 
+                'IBM',
+                'ISC',
+                'MIT',
+                'Mozilla', 
+                'Unlicense',
+                'WTFPL',
+                'Zlib'
+            ]
         }, // choose from list or options (add badge at top of readme when selected)
         {
             type: 'input',
-            name: 'contribution',
+            name: 'contributing',
             message: "What are your contribution guidelines? The Contributor Covenant (https://www.contributor-covenant.org/) is an industry standard",
-            default: "No contribution guidelines"
+            default: "No contributing guidelines"
         },
         {
             type: 'input',
@@ -107,8 +105,10 @@ const questions = () => {
                 }
             }
         } //added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-    
-    ]);
+    ])
+        .then(projectData => {
+            generateMarkdown(projectData);
+        });
 }
 
 // TODO: Create a function to write README file

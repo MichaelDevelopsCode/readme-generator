@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
-var inquirer = require('inquirer');
-var generateMarkdown = require('./utils/generateMarkdown');
+const inquirer = require('inquirer');
+const fs = require('fs'); // allows app to access the fs module's functions through the fs assignment
+const generateMarkdown = require('./utils/generateMarkdown'); // grab function from generateMarkdown.js
 
 // TODO: Create an array of questions for user input
 const questions = () => {
@@ -51,22 +52,11 @@ const questions = () => {
             }
         },
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'license',
             message: "What license would you like to use?",
-            choices: [
-                'Apache',
-                'Boost',
-                'Eclipse', 
-                'IBM',
-                'ISC',
-                'MIT',
-                'Mozilla', 
-                'Unlicense',
-                'WTFPL',
-                'Zlib'
-            ]
-        }, // choose from list or options (add badge at top of readme when selected)
+            choices: ['Apache','Boost','Eclipse','IBM','ISC','MIT','Mozilla','Unlicense','WTFPL','Zlib'],
+        },
         {
             type: 'input',
             name: 'contributing',
@@ -77,7 +67,7 @@ const questions = () => {
             type: 'input',
             name: 'tests',
             message: "How do you run tests on your project?",
-            default: "No testing instrucitons"
+            default: "No testing instructions"
         },
         {
             type: 'input',
@@ -91,7 +81,7 @@ const questions = () => {
                     return false;
                 }
             }
-        }, //added to the section of the README entitled Questions, with a link to my GitHub profile
+        },
         {
             type: 'input',
             name: 'email',
@@ -104,18 +94,27 @@ const questions = () => {
                     return false;
                 }
             }
-        } //added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
+        }
     ])
-        .then(projectData => {
-            generateMarkdown(projectData);
-        });
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) throw err;
+  
+        console.log('README complete! Check out README.md to see the result!');
+    });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    questions()
+        .then(answers => { 
+            let data = generateMarkdown(answers);
+            writeToFile('./README.md', data);
+        });
+}
 
 // Function call to initialize app
 init();

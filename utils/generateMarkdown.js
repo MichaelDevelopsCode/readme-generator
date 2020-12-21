@@ -50,7 +50,7 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if (license) {
     let licenseLink = renderLicenseLink(license);
-    return `This application is covered under the license ${license}. For more info vist ${licenseLink}(${licenseLink})`
+    return `This application is covered under the license ${license}. For more info vist [${licenseLink}](${licenseLink})`
   } else {
     return ''
   }

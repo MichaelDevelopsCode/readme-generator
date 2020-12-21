@@ -89,7 +89,7 @@ function generateMarkdown(data) {
   ${data.tests}
 
   ## Questions
-  My GitHub is [${data.username}](github.com/${data.username}) and for any questions you can reach me at ${data.email}
+  My GitHub is [${data.username}](https://github.com/${data.username}) and for any questions you can reach me at ${data.email}
 `;
 }
 

@@ -25,4 +25,4 @@
   No testing instructions
 
   ## Questions
-  My GitHub is [MichaelDevelopsCode](github.com/MichaelDevelopsCode) and for any questions you can reach me at michaeldevelopscode@gmail.com
+  My GitHub is [MichaelDevelopsCode](https://github.com/MichaelDevelopsCode) and for any questions you can reach me at michaeldevelopscode@gmail.com

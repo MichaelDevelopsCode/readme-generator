@@ -112,7 +112,7 @@ function init() {
     questions()
         .then(answers => { 
             let data = generateMarkdown(answers);
-            writeToFile('./README.md', data);
+            writeToFile('./dist/README.md', data);
         });
 }
 
